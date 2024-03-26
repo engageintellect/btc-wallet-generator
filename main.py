@@ -1,7 +1,9 @@
-#!/usr/bin/env python3
-import os
+from fastapi import FastAPI
 from mnemonic import Mnemonic
 from hdwallet import BIP32HDWallet
+import uvicorn
+
+app = FastAPI()
 
 # Generate a BIP39 seed phrase
 
@@ -21,14 +23,25 @@ def generate_bitcoin_keys(seed_phrase):
     return private_key, address
 
 
-if __name__ == "__main__":
+@app.get("/api/walletGen")
+def generate_wallet():
     # Generate a seed phrase
     seed_phrase = generate_seed_phrase()
 
     # Generate a Bitcoin private key and address from the seed phrase
     private_key, bitcoin_address = generate_bitcoin_keys(seed_phrase)
 
-    # Print the seed phrase, Bitcoin private key, and Bitcoin address
-    print("Bitcoin Address:", bitcoin_address)
-    print("Private Key:", private_key)
-    print("Seed Phrase:", seed_phrase)
+    # Return the seed phrase, Bitcoin private key, and Bitcoin address
+    payload = {
+        "btcAddress": bitcoin_address,
+        "privateKey": private_key,
+        "seedPhrase": seed_phrase
+    }
+
+    return payload
+
+
+# Check if the script is executed directly (not imported)
+if __name__ == "__main__":
+    # Run the Uvicorn server with the FastAPI app, enabling auto-reload
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
