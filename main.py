@@ -21,13 +21,14 @@ def generate_bitcoin_keys(seed_phrase):
     return private_key, address
 
 
-# Generate a seed phrase
-seed_phrase = generate_seed_phrase()
+if __name__ == "__main__":
+    # Generate a seed phrase
+    seed_phrase = generate_seed_phrase()
 
-# Generate a Bitcoin private key and address from the seed phrase
-private_key, bitcoin_address = generate_bitcoin_keys(seed_phrase)
+    # Generate a Bitcoin private key and address from the seed phrase
+    private_key, bitcoin_address = generate_bitcoin_keys(seed_phrase)
 
-# Print the seed phrase, Bitcoin private key, and Bitcoin address
-print("Bitcoin Address:", bitcoin_address)
-print("Private Key:", private_key)
-print("Seed Phrase:", seed_phrase)
+    # Print the seed phrase, Bitcoin private key, and Bitcoin address
+    print("Bitcoin Address:", bitcoin_address)
+    print("Private Key:", private_key)
+    print("Seed Phrase:", seed_phrase)
