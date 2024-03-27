@@ -51,7 +51,7 @@ def generate_wallet():
     payload = {
         "btcAddress": bitcoin_address,
         "privateKey": private_key_wif,
-        "seedPhrase": seed_phrase
+        # "seedPhrase": seed_phrase
     }
 
     return payload
