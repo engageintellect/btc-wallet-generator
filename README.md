@@ -1,6 +1,6 @@
 # btc-wallet-generator
 
-A simple Bitcoin wallet generator that generates a Bitcoin wallet address and private key. It is written in Python and uses the `bitcoin` library to generate the keys.
+A simple Bitcoin wallet generator that generates a Bitcoin wallet address and private key. It is written in Python and uses the `bitcoin` library to generate the keys. It also uses a FastAPI server to serve the keys via an API endpoint.
 
 ## Getting Started
 
