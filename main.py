@@ -60,4 +60,10 @@ def generate_wallet():
 # Check if the script is executed directly (not imported)
 if __name__ == "__main__":
     # Run the Uvicorn server with the FastAPI app, enabling auto-reload
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+
+    # DEV
+    # uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+
+    # PROD
+    uvicorn.run("main:app", host="0.0.0.0", port=4320, ssl_keyfile="/etc/letsencrypt/live/engage-dev.com/privkey.pem",
+                ssl_certfile="/etc/letsencrypt/live/engage-dev.com/fullchain.pem")
