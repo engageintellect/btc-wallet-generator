@@ -2,6 +2,7 @@ annotated-types==0.6.0
 anyio==4.3.0
 astroid==3.1.0
 base58==2.1.1
+bitcoin==1.1.42
 click==8.1.7
 dill==0.3.8
 ecdsa==0.18.0
